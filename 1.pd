@@ -1,0 +1,28 @@
+#N canvas 626 180 873 623 12;
+#X obj 174 111 adc~;
+#X obj 96 208 bonk~;
+#X obj 96 237 bng 40 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 174 152 delwrite~ buffer1 1000;
+#X obj 69 476 delread~ buffer1;
+#X obj 70 574 dac~;
+#X obj 70 524 *~;
+#X msg 203 296 1 2;
+#X obj 204 434 line~;
+#X obj 171 257 t b b;
+#X obj 171 325 delay 100;
+#X msg 171 354 0 10;
+#X text 80 12 detect attacks in the audio flow & let only attacks pass
+;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 1 0 9 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 1;
+#X connect 9 0 10 0;
+#X connect 9 1 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 8 0;
