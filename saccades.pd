@@ -1,4 +1,4 @@
-#N canvas 10 61 1908 992 12;
+#N canvas 6 59 1908 965 12;
 #X obj 20 -270 cnv 15 212 130 empty empty empty 20 12 0 14 #e0e0e0
 #404040 0;
 #N canvas 0 1112 1920 1023 TheArrays 0;
@@ -75,7 +75,7 @@
 #X obj 1582 34 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 1665 34 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 1 1;
+#000000 0 1;
 #X obj 1076 34 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 1160 34 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
@@ -1947,7 +1947,6 @@
 #X connect 24 0 40 0;
 #X connect 41 0 22 0;
 #X restore 30 -330 pd init;
-#X obj 310 160 dac~ 1 2;
 #X obj 30 -250 s INIT;
 #X obj 30 -260 bng 50 250 50 0 empty empty init 7 24 0 14 #fcfcfc #000000
 #000000;
@@ -1989,9 +1988,8 @@ before allowing the next possible attack to pass through;
 #X connect 9 0 5 1;
 #X connect 13 0 1 0;
 #X coords 0 -1 1 1 124 124 1 210 379;
-#X restore 385 -261 pd detect-attacks;
-#X obj 385 -316 adc~ 1;
-#X obj 410 -285 delwrite~ buffer1 3000;
+#X restore 200 -60 pd detect-attacks;
+#X obj 225 -84 delwrite~ buffer1 3000;
 #N canvas 6 61 1912 1017 buffer-read-and-write 0;
 #X obj 238 -1246 delread~ buffer1;
 #X obj 238 -1198 *~;
@@ -2079,11 +2077,13 @@ ms (or the length of the buffer \, as defined by the user);
 #X restore 31 -305 pd buffer-read-and-write;
 #X obj 424 138 env~;
 #X floatatom 424 167 5 0 0 0 - - -, f 5;
-#X connect 1 0 3 1;
-#X connect 1 0 3 0;
-#X connect 1 0 15 0;
-#X connect 5 0 4 0;
-#X connect 7 0 6 0;
-#X connect 12 0 11 0;
-#X connect 12 0 13 0;
-#X connect 15 0 16 0;
+#X obj 200 -119 inlet~;
+#X obj 330 320 outlet~;
+#X connect 1 0 13 0;
+#X connect 1 0 16 0;
+#X connect 4 0 3 0;
+#X connect 6 0 5 0;
+#X connect 13 0 14 0;
+#X connect 15 0 10 0;
+#X connect 15 0 11 0;
+#X coords 0 -1 1 1 1663 229 1 187 -127;
